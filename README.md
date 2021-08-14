@@ -1,4 +1,5 @@
-# Visualisation of affected buildings from lake outburst
+# Hydraulic Model of the Glacial Lake Outburst Flood at Lake Oeschinen, Switzerland
+
 ## Purpose
 This code was written by Sibylle Wilhelm and Michèle Grindat in the course of the seminar paper for the “Geodata Analysis and Modelling” seminar during spring semester 2021. <br />
 The two lake outburst scenarios of Lake Oeschinen were modelled in BASEMENT. The resulting flood layers were further processed in Python to determine the number of affected buildings and their respective building type. Furthermore the maximum flow depths were seperated into 5 categories for visualisation in QGIS. 

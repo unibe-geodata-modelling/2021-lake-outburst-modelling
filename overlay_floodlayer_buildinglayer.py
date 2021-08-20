@@ -1,15 +1,16 @@
-# TODO: which sign combination needs to be used, to mark sections (e.g. section "import packages")? ( -> more appealing/structured code)
 #### Import packages ####
 import numpy as np
 import geopandas as gpd
 
-#### Set workspace #### TODO: Adjust to "neutral" workspace in final code!
-myworkspace = "/Users/michelegrindat/Desktop/oeschinensee/Data"
+#### Set workspace ####
+myworkspace = "insert the path to your workspace here"
 
 #### Read flood layer and building layer as a geodataframe ####
+# remove or add hashtag depending on which flood scenario you want to calculate
+buildings_gdf = gpd.read_file(myworkspace+"/"+"TLM_GEBAEUDE_FOOTPRINT_Kander.shp")
 # flood_gdf=gpd.read_file(myworkspace+"/"+"SmallFlood_1250_7200_20800_11h.shp")
 flood_gdf = gpd.read_file(myworkspace+"/"+"BigFlood_4450_7200_19775_20h.shp")
-buildings_gdf = gpd.read_file(myworkspace+"/"+"TLM_GEBAEUDE_FOOTPRINT_Kander.shp")
+
 ## Check data
 # show attribute table
 print(flood_gdf.head())
@@ -23,7 +24,7 @@ print(buildings_gdf)
 # Check projection of layer with .crs
 print(flood_gdf.crs)
 print(buildings_gdf.crs)
-# If layers do not use the same projection, reproject, e.g to EPSG 2056
+# If layers do not use the same projection, reproject one of them, e.g. here to EPSG 2056
 buildings_gdf = buildings_gdf.to_crs("EPSG:2056")
 # Check if projected crs is correct
 print(buildings_gdf.crs)
@@ -36,8 +37,7 @@ fbo_dis_raw = fbo.sort_values("max_depth", ascending=False).dissolve(by="OBJECTI
 # Remove all records with a flow depth of 0
 fbo_dis = fbo_dis_raw[fbo_dis_raw.max_depth != 0]
 # check if there are still some duplicates, based on the Object ID
-if fbo_dis["OBJECTID"].duplicated().any():  # TODO: could also be removed, just had some fun :)
-    print("There are still some duplicates!")
+if fbo_dis["OBJECTID"].duplicated().any():
 else:
     print("There are no more duplicates.")
 
@@ -48,7 +48,6 @@ print("In total {} buildings are going to be affected by the flood.".format(tota
 # Count no. of buildings per building type
 buildings_per_buildingtype = fbo_dis[["geometry", "OBJEKTART"]].groupby(by="OBJEKTART").count()
 fbo_dis[["geometry", "OBJEKTART"]].groupby(by="OBJEKTART").count()
-# TODO:Wenn noch Zeit/Lust: print Funktion welche anzeigt wie viele Objekte pro Kategorie
 # Create flood categories, count no. of buildings per flood category
 # 1. Preprocessing: create flood categories
 # 1.1. Create a list of conditions
@@ -76,5 +75,6 @@ print(" {} buildings will be affected by a flow depth of up to 0.5m, {} with up 
 # TODO: The line could be improved so that the 0.5m etc. do not need to be changed by hand, e.g. by "input" at the beginning of preprocessing
 
 ##### write the output file ####
+# remove or add hashtag depending on which flood scenario you want to calculate
 fbo_dis.to_file(myworkspace+"/" + "flood_building_overlay_dissolved_small_flood_test_dissolve.shp")
 # flood_building_overlay_dissolved.to_file(myworkspace+"/"+"flood_building_overlay_dissolved_big_flood.shp")

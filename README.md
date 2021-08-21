@@ -5,7 +5,7 @@ This code was written by Sibylle Wilhelm and Michèle Grindat in the course of t
 The "Spize Stei" rock formation above Lake Oeschinen is moving, there is a possibility that the falling down rocks will hit Lake Oeschinen and steadly fill up the lake and create a natural dam in front of it. As there is a potential that the dam would break, two lake outburst scenarios (one for a small flood and one for a big flood)were modelled in BASEMENT. Further details about the modelling itself can be found in the pdf document. 
 
 ## Puropose
-The two resulting flood layers were further processed in Python to determine the number of affected buildings as well their respective building type. Furthermore the maximum flow depths at each building was devided into five categories for the visualisation of the affected buildings in QGIS. 
+The two resulting flood layers were further processed in Python to determine the number of affected buildings as well their respective building type. Furthermore, the maximum flow depths at each building was devided into five categories for the visualisation of the affected buildings in QGIS. 
 
 ## How To Use It
 

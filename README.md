@@ -40,7 +40,8 @@ The code can be tested with the flood and building layers that we used in our se
 ## Result
 The flow depth categories created in the skript were used visualize the flow depth for each of the affected buildings. As an example to show the differences in affected buildings and flow depth between the two scenarios two detailed maps of Kandersteg were created. The figures below show the maximum flow depth that affects each building in Kandersteg. On top is the result of the small flood scenario, on the bottom for the big flood scenario. See the pdf documentation for further results regarding the flood extension that didn‘t include processing in Python.  <br />
 ![kandersteg_small_flood](https://user-images.githubusercontent.com/71430008/130251231-d51ec383-52d3-481e-bcd4-164999dbf7b3.jpg)
-![kandersteg_big_flood](https://user-images.githubusercontent.com/71430008/130250771-e7fc5558-da7d-479a-858c-a810b048aec5.jpg)
+![kandersteg_big_flood](https://user-images.githubusercontent.com/71430008/130400939-62bcbd4d-0a18-43c4-a9ed-46095a617cd8.jpg)
+
 
 
 ## Improvements
